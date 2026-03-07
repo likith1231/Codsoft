@@ -1,38 +1,19 @@
-Credit Card Fraud Detection (Kaggle)
-====================================
+CodSoft Machine Learning Tasks
+==============================
 
-This project builds a **credit card fraud detection** model using the Kaggle dataset:
-`https://www.kaggle.com/datasets/kartik2112/fraud-detection`.
+This repository contains three ML tasks for your CodSoft internship:
 
-It loads the transaction data, preprocesses features, trains a machine learning model,
-and evaluates performance using metrics suited for imbalanced classification.
-
-
-Project structure
------------------
-
-- `README.md` – project documentation and setup instructions  
-- `requirements.txt` – Python dependencies  
-- `fraud_detection.py` – main training & evaluation script  
-- `data/` – folder where you place the downloaded Kaggle CSV files  
-- `models/` – folder where trained models will be saved (created automatically)
+- **Task 1 – Credit Card Fraud Detection**
+- **Task 2 – Customer Churn Prediction**
+- **Task 3 – SMS Spam Detection**
 
 
-1. Prerequisites
-----------------
+Common setup
+------------
 
-- Python 3.8+ installed
-- `pip` available in your PATH
-
-Optional but recommended:
-
-- A virtual environment (so dependencies for this project stay isolated)
-
-
-2. Setup environment
---------------------
-
-Open a terminal in the project folder and run:
+1. Install Python 3.8+.
+2. Open a terminal in the `Codsoft` folder.
+3. (Optional but recommended) create and activate a virtual environment:
 
 ```bash
 python -m venv .venv
@@ -47,72 +28,100 @@ On PowerShell you might need:
 .\.venv\Scripts\Activate.ps1
 ```
 
-
-3. Download the dataset from Kaggle
------------------------------------
-
-1. Open the dataset page in your browser:  
-   `https://www.kaggle.com/datasets/kartik2112/fraud-detection`
-2. Sign in to Kaggle (account required).
-3. Click **Download** to get the dataset as a `.zip` file.
-4. Extract the archive locally.
-5. Copy the CSV file(s), typically:
-   - `fraudTrain.csv`
-   - `fraudTest.csv`
-
-   into a `data/` folder in this project (create it if it does not exist), so you have:
-
-   - `data/fraudTrain.csv`
-   - `data/fraudTest.csv`
-
-If your CSV file names differ, update the paths inside `fraud_detection.py`.
+All three tasks share the same `requirements.txt`.
 
 
-4. Run the training script
---------------------------
+Task 1 – Credit Card Fraud Detection
+------------------------------------
 
-From the project root, with the virtual environment activated:
+- **Goal**: Detect fraudulent credit card transactions using the Kaggle dataset  
+  `https://www.kaggle.com/datasets/kartik2112/fraud-detection`.
+- **Main file**: `fraud_detection.py`
+
+Expected data files (place them in `Codsoft/data/`):
+
+- `fraudTrain.csv`
+- `fraudTest.csv` (optional, script mainly uses `fraudTrain.csv`)
+
+Run:
 
 ```bash
 python fraud_detection.py
 ```
 
-The script will:
+What the script does:
 
-1. Load `data/fraudTrain.csv` (or fail with a clear error if it is missing).
-2. Prepare features and target (`is_fraud`).
-3. Split data into training and validation sets.
-4. Build a preprocessing + logistic regression pipeline:
-   - Scale numeric features.
-   - One-hot encode categorical features.
-   - Use class weighting to reduce class imbalance issues.
-5. Train the model.
-6. Print:
-   - Class balance in the dataset.
-   - Confusion matrix.
-   - Precision, recall, F1-score.
-   - ROC-AUC score.
-7. Save the trained pipeline to `models/logreg_fraud_model.joblib`.
+- Loads `data/fraudTrain.csv`.
+- Builds features and target (`is_fraud`).
+- Uses a preprocessing + **Logistic Regression** pipeline (scaling + one-hot encoding + class weights).
+- Prints class balance, confusion matrix, classification report, and ROC-AUC.
+- Saves the trained model to `models/logreg_fraud_model.joblib`.
 
 
-5. Modifying the script for your internship report
---------------------------------------------------
+Task 2 – Customer Churn Prediction
+----------------------------------
 
-For your internship, you can extend or customize:
+- **Goal**: Predict whether a bank customer will churn using historical data (demographics + account info).  
+- **Dataset**: Kaggle bank customer churn dataset  
+  `https://www.kaggle.com/datasets/shantanudhakadd/bank-customer-churn-prediction`
+- **Main file**: `churn_prediction.py`
 
-- **Exploratory data analysis (EDA)**:
-  - Plot histograms of transaction amounts.
-  - Plot class distribution (fraud vs non-fraud).
-  - Analyse fraud rate by category, amount, time, etc.
+Expected data file (place in `Codsoft/data/`):
 
-- **Model experiments**:
-  - Try other models like `RandomForestClassifier`, `XGBClassifier` (XGBoost), etc.
-  - Adjust sampling size or use techniques such as SMOTE (from `imbalanced-learn`).
+- `Churn_Modelling.csv`
 
-- **Reporting**:
-  - Summarize your approach, preprocessing decisions, model choice, and metrics.
-  - Compare multiple models in a small table (precision, recall, F1, ROC-AUC).
+Run:
 
-You can also move this logic into Jupyter notebooks if you prefer to present it
-step by step (`pip install jupyter` and then `jupyter notebook`).
+```bash
+python churn_prediction.py
+```
+
+What the script does:
+
+- Loads the churn dataset.
+- Drops identifier columns like `RowNumber`, `CustomerId`, `Surname`.
+- Uses customer features (e.g., `CreditScore`, `Geography`, `Gender`, `Age`, `Tenure`, etc.).
+- Builds a preprocessing pipeline (numeric scaling + one-hot encoding for categoricals).
+- Trains and evaluates **three models**:
+  - Logistic Regression
+  - Random Forest
+  - Gradient Boosting
+- Prints metrics (accuracy, precision, recall, F1, ROC-AUC) for each model.
+
+
+Task 3 – SMS Spam Detection
+---------------------------
+
+- **Goal**: Classify SMS messages as **spam** or **ham** (legitimate).  
+- **Dataset**: UCI SMS Spam Collection dataset on Kaggle  
+  `https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset`
+- **Main file**: `sms_spam_detection.py`
+
+Expected data file (place in `Codsoft/data/`):
+
+- `spam.csv`
+
+Run:
+
+```bash
+python sms_spam_detection.py
+```
+
+What the script does:
+
+- Loads the SMS dataset.
+- Uses the message text as input and the spam/ham label as target.
+- Applies **TF-IDF** text vectorization.
+- Trains and evaluates several classifiers (Naive Bayes, Logistic Regression, Linear SVM).
+- Prints accuracy, precision, recall, and F1-score for each model.
+
+
+Notes
+-----
+
+- If your downloaded CSV file names differ, update the file paths at the top of each script.
+- For your internship report, you can:
+  - Add EDA plots (matplotlib / seaborn).
+  - Tune model hyperparameters.
+  - Compare models in tables and discuss trade-offs.
 
