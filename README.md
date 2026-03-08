@@ -8,6 +8,27 @@ This repository contains three ML tasks for your CodSoft internship:
 - **Task 3 – SMS Spam Detection**
 
 
+Quick start (datasets included)
+-------------------------------
+
+Datasets are already prepared in `data/`. To run all three projects:
+
+```bash
+pip install -r requirements.txt
+python fraud_detection.py
+python churn_prediction.py
+python sms_spam_detection.py
+```
+
+To regenerate datasets (e.g. after cloning on a new machine), run:
+
+```bash
+python setup_datasets.py
+```
+
+This downloads the UCI SMS spam dataset and creates synthetic fraud/churn data matching the expected schemas. You can later replace `fraudTrain.csv` and `Churn_Modelling.csv` with real Kaggle downloads for better results.
+
+
 Common setup
 ------------
 
