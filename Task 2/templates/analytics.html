@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card-ui text-center">
+
+<h2>Churn Analytics Dashboard</h2>
+<p class="text-muted">Real-time churn distribution</p>
+
+<div style="max-width:350px;margin:auto;">
+<canvas id="chart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+new Chart(document.getElementById("chart"),{
+type:'doughnut',
+data:{
+labels:["Likely Leave","Likely Stay"],
+datasets:[{
+data:[{{leave}},{{stay}}],
+backgroundColor:["#ef4444","#22c55e"]
+}]
+},
+options:{
+cutout:'70%',
+plugins:{legend:{position:'bottom'}}
+}
+})
+</script>
+
+</div>
+
+{% endblock %}
