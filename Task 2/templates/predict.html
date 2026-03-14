@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card-ui">
+
+<h2 class="mb-4">Customer Prediction</h2>
+
+<form method="post">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+<input class="form-control" name="credit" placeholder="Credit Score">
+</div>
+
+<div class="col-md-6 mb-3">
+<input class="form-control" name="age" placeholder="Age">
+</div>
+
+<div class="col-md-6 mb-3">
+<input class="form-control" name="tenure" placeholder="Tenure">
+</div>
+
+<div class="col-md-6 mb-3">
+<input class="form-control" name="balance" placeholder="Balance">
+</div>
+
+<div class="col-md-6 mb-3">
+<input class="form-control" name="products" placeholder="Products">
+</div>
+
+<div class="col-md-6 mb-3">
+<select class="form-control" name="card">
+<option value="1">Has Card</option>
+<option value="0">No Card</option>
+</select>
+</div>
+
+<div class="col-md-6 mb-3">
+<select class="form-control" name="active">
+<option value="1">Active</option>
+<option value="0">Inactive</option>
+</select>
+</div>
+
+<div class="col-md-6 mb-3">
+<input class="form-control" name="salary" placeholder="Salary">
+</div>
+
+<div class="col-md-6 mb-3">
+<select class="form-control" name="gender">
+<option value="1">Male</option>
+<option value="0">Female</option>
+</select>
+</div>
+
+<div class="col-md-6 mb-3">
+<select class="form-control" name="germany">
+<option value="1">Germany</option>
+<option value="0">Not Germany</option>
+</select>
+</div>
+
+<div class="col-md-6 mb-3">
+<select class="form-control" name="spain">
+<option value="1">Spain</option>
+<option value="0">Not Spain</option>
+</select>
+</div>
+
+</div>
+
+<button class="btn-ai mt-3">Predict</button>
+
+</form>
+
+{% if result %}
+<div class="alert alert-info mt-4">
+{{ result }} — Risk {{ prob }}%
+</div>
+{% endif %}
+
+</div>
+
+{% endblock %}
