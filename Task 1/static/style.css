@@ -1,0 +1,12 @@
+body{
+background:#f5f7fb;
+font-family:Arial;
+}
+
+.card{
+border-radius:12px;
+}
+
+canvas{
+max-height:400px;
+}
