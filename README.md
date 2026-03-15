@@ -135,5 +135,5 @@ Important Notes
 ---------------
 
 - Keep all dataset files inside their respective task directories.
-- Generated model and database files should remain local and is not pushed to GitHub.
+- Generated model and database files are local and is not pushed to GitHub.
 - Each task is implemented as an independent machine learning pipeline with its own user interface and training workflow.
