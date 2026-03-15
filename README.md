@@ -50,6 +50,12 @@ Task 1 — Credit Card Fraud Detection
 - Random Forest
 - Dataset
 - Credit Card Fraud Detection Dataset (Kaggle)
+  
+Dataset Source
+
+- Kaggle Fraud Detection Dataset = 
+https://www.kaggle.com/datasets/kartik2112/fraud-detection
+
 
 Steps to Run
 ```
@@ -69,6 +75,10 @@ Task 2 — Customer Churn Prediction
 - Gradient Boosting
 - Dataset
 - Bank Customer Churn Prediction Dataset (Kaggle)
+
+Dataset Source
+
+- Kaggle Bank Customer Churn Dataset = https://www.kaggle.com/datasets/shantanudhakadd/bank-customer-churn-prediction
 
 Steps to Run
 ```
@@ -92,6 +102,10 @@ Task 3 — SMS Spam Detection
 - Support Vector Machine
 - Dataset
 - SMS Spam Collection Dataset (Kaggle / UCI)
+
+Dataset Source
+
+- SMS Spam Collection Dataset = https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset
 
 Steps to Run
 ```
